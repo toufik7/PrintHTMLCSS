@@ -1,22 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="row">
-      <div class="col-3" id="side">
-        <app-sidebar></app-sidebar>
-      </div>
+      
       <div class="col-8" id="main">
-        <div class="row">
-          <div class="col-12" id="nav">
-            <app-navdm (messageEvent)="recieveMsg($event)"></app-navdm>
-            <app-ec-nav></app-ec-nav>
-            <app-ppnav (notify)="onNotified($event)"></app-ppnav>
-          </div>
-        </div>
 
-        <div *ngIf="state!='TERMINER'" class="col-12" id="content">
+        <div class="col-12" id="content">
 
           <div id="btns" class="row">
-            <button [disabled]="certRegistred && isCertificat() || ordRegistred && isOrd()" class="btn btn-success" (click)="savepp()"><i class="bi bi-save-fill"></i> Enregistrer</button>
+            <button [disabled]="certRegistred" class="btn btn-success" (click)="savepp()"><i class="bi bi-save-fill"></i> Enregistrer</button>
             <button class="btn btn-warning" onClick="window.print();"><i class="bi bi-printer-fill"></i>Imprimer</button>
           </div>
 
@@ -31,145 +22,6 @@
               <div><textarea  [disabled]="certRegistred" [(ngModel)]="certificat.recommandation" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></textarea></div>
             </div>
           </div>
-
-          <!-- ordonnance -->
-          <div *ngIf="isOrd()">
-
-            <!--insuline-->
-            <div class="row o">
-              <div id="t">Insuline Par Voie Sous-Cutane</div>
-              <div>
-                <table class="table">
-                  <thead>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th scope="col">Matin</th>
-                    <th scope="col">Midi</th>
-                    <th scope="col">Soir</th>
-                    <th scope="col">Coucher</th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td scope="col">Rapide</td>
-                      <td></td>
-                      <td scope="col">Dosage</td>
-                      <td>
-                        <div class="row">
-                          <div class="col-8">
-                            <input  type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                          </div>
-                          <div class="col-1 unit">
-                            UI
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="row">
-                          <div class="col-8">
-                            <input  type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                          </div>
-                          <div class="col-1 unit">
-                            UI
-                          </div>
-                        </div>
-                      <td>
-                        <div class="row">
-                          <div class="col-8">
-                            <input  type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                          </div>
-                          <div class="col-1 unit">
-                            UI
-                          </div>
-                        </div>
-                      <td>
-                        <div class="row">
-                          <div class="col-8">
-                            <input  type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                          </div>
-                          <div class="col-1 unit">
-                            UI
-                          </div>
-                        </div>
-                    </tr>
-                    <tr>
-                      <td scope="col">Lente</td>
-                      <td></td>
-                      <td scope="col">Dosage</td>
-                      <td>
-                        <div class="row">
-                          <div class="col-8">
-                            <input  type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                          </div>
-                          <div class="col-1 unit">
-                            UI
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="row">
-                          <div class="col-8">
-                            <input  type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                          </div>
-                          <div class="col-1 unit">
-                            UI
-                          </div>
-                        </div>
-                      <td>
-                        <div class="row">
-                          <div class="col-8">
-                            <input  type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                          </div>
-                          <div class="col-1 unit">
-                            UI
-                          </div>
-                        </div>
-                      <td>
-                        <div class="row">
-                          <div class="col-8">
-                            <input  type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                          </div>
-                          <div class="col-1 unit">
-                            UI
-                          </div>
-                        </div>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <!--aiguille-->
-            <div class="row o">
-              <div id="t">Aiguille Pour Stylo a Insulin</div>
-              <div class="col-3" id="tt">Aiguilles</div>
-              <div class="col-2">
-                <input  type="number" placeholder="/jour" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-              </div>
-            </div>
-
-            <!--auto surveillance-->
-            <div class="row o">
-              <div id="t">AutoSurvaillance Glycemie</div>
-              <div class="col-3" id="tt">Lancettes</div>
-              <div class="col-2">
-                <input  type="number" placeholder="/jour" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-              </div>
-
-              <div class="col-3 offset-2" id="tt">Bandlettes</div>
-              <div class="col-2">
-                <input  type="number" placeholder="/jour" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-              </div>
-            </div>
-
-            <div class="row o">
-              <div id="t">Autre Medications</div>
-              <div><textarea  [disabled]="ordRegistred" [(ngModel)]="ord.autre" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></textarea></div>
-            </div>
-
-          </div>
-
-
 
         </div>
         </div>
@@ -216,7 +68,7 @@
 
                 <div class="row">
                   <div id="first">
-                    <p>Sidi Bel Abbès le <em>{{dateOrd}}</em></p>
+                    <p>Sidi Bel Abbès le <em>{{dateCrt}}</em></p>
                   </div>
                 </div>
 
@@ -250,68 +102,6 @@
         </li>
 
       </ul>
-
-        <!-- ordonnance -->
-          <ul class="form-section page-section" *ngIf="isOrd()">
-
-            <li id="cid_1" class="form-input-wide" data-type="control_head">
-              <div class="form-header-group  header-large">
-                <div class="header-text httar htvam">
-                  <h1 id="header_1" class="form-header" data-component="header">
-                    ORDONNANCE
-                  </h1>
-                </div>
-              </div>
-            </li>
-
-            <li class="form-line" data-type="control_inline" id="id_76">
-              <div id="cid_76" class="form-input-wide" data-layout="full">
-                <div id="FITB_76" class="FITB formRender">
-
-                    <div class="row">
-                      <div id="first">
-                        <p>Sidi Bel Abbès le <em>{{dateOrd}}</em></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </li>
-                <li>
-                  <div class="row">
-                    <!--date tel service, dr-->
-                  </div>
-
-                  <div class="row">
-                    <!--insuline-->
-                  </div>
-
-                  <div class="row">
-                    <!--aiguille-->
-                  </div>
-
-                  <div class="row">
-                    <!--auto surveillance-->
-                  </div>
-
-                  <div class="row">
-                    <div id="t">Autre Medications</div>
-                    <div><textarea  [disabled]="ordRegistred" [(ngModel)]="ord.autre" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></textarea></div>
-                  </div>
-
-                </li>
-
-                <li>
-                  <div class="row">
-                    <div id="med" class="col-4 offset-8">
-                      <strong>Signature et cachet: </strong>
-                      <div id="doctor">{{username}}</div>
-                    </div>
-                  </div>
-                </li>
-          </ul>
-
-
-
 
     </div>
   </form>
