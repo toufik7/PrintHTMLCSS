@@ -11,6 +11,7 @@
 check [papier.component.css](https://github.com/toufik7/PrintHTMLCSS/blob/main/papier/papier.component.css) to see how the template changes when pressing the button `print`
 
 this is an exemple.
+
 to make it functional , add required classes (`Certificat` , `Patient`)
 
 ## a real exemple:
