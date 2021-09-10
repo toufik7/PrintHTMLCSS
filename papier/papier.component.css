@@ -4,35 +4,8 @@
 #main{
   margin: 10px;
 }
-.rounded{
-  margin: 10px;
-  width: 100px;
-  height: 100px;
-}
 #t{
   font-weight: bold;
-}
-#e{
-  margin-top: 15px;
-}
-
-#title{
-  text-align: center;
-  font-weight: 600;
-  font-size: x-large;
-  margin-bottom: 20px;
-  color: dodgerblue;
-}
-#a{
-  font-weight: 500;
-}
-
-#bp, .paper{
-  border: 2px solid black;
-  padding: 10px;
-}
-#at{
-  padding: 10px;
 }
 i{
   padding: 5px;
@@ -76,10 +49,6 @@ p{
   text-align: center;
   font-weight: 500;
 }
-
 #a{
   font-weight: 500;
-}
-#at{
-  padding: 10px;
 }
