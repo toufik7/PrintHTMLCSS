@@ -10,18 +10,16 @@ import { Patient } from '../class/patient';
 })
 export class PapierComponent implements OnInit {
 
-  c = new Consultation();
-  p = new Patient();
-  id: any;
-  username='Mc.Smith';
-  certRegistred = false;
   certificat = new Certificat();
-  dateCrt ='';
-  dateP = '';
+  p = new Patient();
+  dateCrt = new Date();
+  username='';
 
   constructor() {}
 
   ngOnInit(): void {
+    this.setPatient();
+    username='Mc.Smith';
   }
 
   setPatient(){
@@ -29,12 +27,4 @@ export class PapierComponent implements OnInit {
     this.p.prenom = 'john'
     this.p.dateNaissance = '1992-12-03'
   }
-
-  savepp(){
-        //set patient
-        this.setPatient();
-        this.dateCrt = new Date();
-
-        this.certRegistred = true;
-    }
-  }
+}
