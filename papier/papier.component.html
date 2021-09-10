@@ -11,14 +11,14 @@
           </div>
 
           <!-- certificat -->
-          <div class="row"  *ngIf="isCertificat()">
+          <div class="row" >
             <div class="col-6">
               <div id="t">Cause</div>
-              <div><textarea [disabled]="certRegistred" [(ngModel)]="certificat.cause" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></textarea></div>
+              <div><textarea  [(ngModel)]="certificat.cause" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></textarea></div>
             </div>
             <div class="col-6">
               <div id="t">Recommandation</div>
-              <div><textarea  [disabled]="certRegistred" [(ngModel)]="certificat.recommandation" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></textarea></div>
+              <div><textarea   [(ngModel)]="certificat.recommandation" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></textarea></div>
             </div>
           </div>
 
@@ -49,7 +49,7 @@
 
 
       <!-- certficat medical-->
-      <ul class="form-section page-section" *ngIf="isCertificat()">
+      <ul class="form-section page-section">
 
         <li id="cid_1" class="form-input-wide" data-type="control_head">
           <div class="form-header-group  header-large">
