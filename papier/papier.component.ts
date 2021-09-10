@@ -19,7 +19,7 @@ export class PapierComponent implements OnInit {
 
   ngOnInit(): void {
     this.setPatient();
-    username='Mc.Smith';
+    this.username='Mc.Smith';
   }
 
   setPatient(){
